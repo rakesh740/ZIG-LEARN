@@ -25,3 +25,31 @@
      get latency data for all test cases 
      - test all the sub protocols tested in local, now in gcp machines 
      - test recovery from disk when all the nodes in the cluster fails
+
+
+# Story breakdown
+
+* learn basic syntax to understand code ( gourav, kartheek, Rakesh )
+
+* write a client in zig  to test the repo, implement and understand following functions of a vsr client 
+     - fn Regester() // Registers a session with the cluster for the client, if this has not yet been done.
+     - fn SendMessage() // Sends a message to the cluster
+     - find the leader of the cluster to send the messages 
+     - fn handle_Reply() // handle reply of message from cluster
+
+* VSR sub protocols implemented by tiger bettle
+     - sub protocol normal operation commands from primary and replica perspectives: request, prepare, prepare_ok, reply, commit.
+     - sub protocol view change operation commands from primary and replica: start view change, do view change, start view.
+     - recovery sub protocol: recovery and recovery response.
+     - understand overview of the implementation. for further bug fixing if required 
+     - also use the client previously built to test all optimal and edge cases in each sub protocol.
+
+* deploy the tigerbettle vsr in 4 gcp vms
+     - containerize the applications ( replica and client to be deployed )    
+     - deply it in gcp
+
+
+    
+    
+    
+   
